@@ -115,3 +115,19 @@
 # выводятся очки каждой собаки. Однако при выводе был обнаружен баг: собаки с наибольшим и наименьшим количеством очков
 # поменялись местами!
 # Дан список очков из N собак. Напишите программу, которая меняет местами наибольший и наименьший элементы в списке.
+# import math
+dogs_amount = int(input('Введите количество собак: '))
+dogs_scores = []
+for dog in range (1, dogs_amount + 1):
+    scores = int(input(f"Введите количество очков {dog}-ой собаки: "))
+    dogs_scores.append(scores)
+
+i_max, i_min = 0, 0
+for i in range(dogs_amount):
+    if dogs_scores[i] == max(dogs_scores):
+        i_max = i
+    elif dogs_scores[i] == min(dogs_scores):
+        i_min = i
+
+dogs_scores[i_min], dogs_scores[i_max] = max(dogs_scores), min(dogs_scores)
+print(dogs_scores)
